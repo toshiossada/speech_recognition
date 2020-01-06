@@ -107,11 +107,13 @@ public class SpeechRecognitionPlugin implements MethodCallHandler, RecognitionLi
 
     @Override
     public void onRmsChanged(float rmsdB) {
+
         //Log.d(LOG_TAG, "onRmsChanged : " + rmsdB);
     }
 
     @Override
     public void onBufferReceived(byte[] buffer) {
+
         Log.d(LOG_TAG, "onBufferReceived");
     }
 
@@ -141,6 +143,7 @@ public class SpeechRecognitionPlugin implements MethodCallHandler, RecognitionLi
 
     @Override
     public void onEvent(int eventType, Bundle params) {
+
         Log.d(LOG_TAG, "onEvent : " + eventType);
     }
 
@@ -158,6 +161,7 @@ public class SpeechRecognitionPlugin implements MethodCallHandler, RecognitionLi
     }
 
     private void sendTranscription(boolean isFinal) {
+
         speechChannel.invokeMethod(isFinal ? "speech.onRecognitionComplete" : "speech.onSpeech", transcription);
     }
 }
